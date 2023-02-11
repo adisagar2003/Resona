@@ -131,7 +131,7 @@ export default function Authenticated({ auth, header, children }) {
                     </div>
 
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href="/dashboard">
+                        <ResponsiveNavLink href="/postSong">
                             Upload
                         </ResponsiveNavLink>
                     </div>

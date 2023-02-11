@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Inertia\Inertia;
 class SongController extends Controller
 {
     /**
@@ -49,7 +50,7 @@ class SongController extends Controller
 
      ]);
 
-     return Song::all();
+     return Inertia::render('/Dashboard');
 
     }
 

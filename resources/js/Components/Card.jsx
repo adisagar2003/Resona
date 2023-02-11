@@ -35,10 +35,10 @@ function Card({ songName, artistName, songImage, songLength, songPath }) {
                     src={`http://127.0.0.1:8000/${songImage}`}
                     alt="artistprofile"
                 />
-                <div class="absolute bg-black rounded bg-opacity-0 group-hover:bg-opacity-60 w-full h-full top-0 flex items-center group-hover:opacity-100 transition justify-evenly">
+                <div class="absolute bg-black rounded bg-opacity-0 md:bg-opacity-0 group-hover:bg-opacity-60 w-full h-full top-0 flex items-center group-hover:opacity-100 transition justify-evenly">
                     <button
                         onClick={showAlertFor2}
-                        class="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition"
+                        class="hover:scale-110 text-white md:opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ function Card({ songName, artistName, songImage, songLength, songPath }) {
                                 JSON.stringify(songName)
                             );
                         }}
-                        class="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition"
+                        class="hover:scale-110 text-white md:opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ function Card({ songName, artistName, songImage, songLength, songPath }) {
                         </svg>
                     </button>
 
-                    <button class="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
+                    <button class="hover:scale-110 text-white md:opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="20"

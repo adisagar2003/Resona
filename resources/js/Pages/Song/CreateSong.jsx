@@ -22,15 +22,18 @@ function CreateSong(props) {
     }, [data]);
 
     function submit(e) {
-        console.log(data);
         e.preventDefault();
-        post("/songs", {
+        router.post("/songs", data, {
             forceFormData: true,
         });
     }
 
     return (
-        <form onSubmit={submit} class="p-10 md:grid md:grid-cols-3 md:gap-6">
+        <form
+            onSubmit={submit}
+            enctype="multipart/form-data"
+            class="p-10 md:grid md:grid-cols-3 md:gap-6"
+        >
             <input
                 type="text"
                 onChange={(e) => {

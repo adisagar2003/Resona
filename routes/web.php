@@ -45,10 +45,10 @@ Route::get('/dashboard', function () {
 Route::get('/relation',function(){
     return Artist::find();
 });
-
+Route::post('/songs',[SongController::class,'create']);
 Route::get('/songs',[SongController::class,'index']);
 Route::get('/songsMain',[SongController::class,'paginationShow']);
-Route::post('/songs',[SongController::class,'create']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
