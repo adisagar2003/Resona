@@ -8,7 +8,7 @@ import { Link } from "@inertiajs/react";
 import { useEffect } from "react";
 
 export default function Dashboard(props, { user, auth }) {
-    console.log(props.user, "HELLO THERE USER HERE HOW ARE YOU");
+    console.log(props.songs, "HELLO THERE USER HERE HOW ARE YOU");
     const [bottomPlayerData, setBottomPlayerData] = useState({
         isPlaying: false,
     });
@@ -50,13 +50,21 @@ export default function Dashboard(props, { user, auth }) {
                                     setTriggerCard(Math.random() * 1000);
                                 }}
                             >
-                                <Card
-                                    artistName="Devilish Trio"
-                                    changeData={changeData}
-                                    songImage="https://i.scdn.co/image/ab67616d0000b2735fa79126b8c8b464059ff615"
-                                    songName="Smoked out killaz"
-                                    songLength={3.0}
-                                />
+                                {props.songs.map((song) => {
+                                    console.log(song.songPath, "SONG PATH");
+                                    return (
+                                        <Card
+                                            artistName={song.artistName}
+                                            songName={song.songName}
+                                            songImage={`storage/${song.songImagePath.slice(
+                                                6
+                                            )}`}
+                                            songPath={`storage/${song?.songPath?.slice(
+                                                6
+                                            )}`}
+                                        />
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
@@ -86,45 +94,21 @@ export default function Dashboard(props, { user, auth }) {
                                 setTriggerCard(Math.random() * 1000);
                             }}
                         >
-                            <Card
-                                artistName="Devilish Trio"
-                                changeData={changeData}
-                                songImage="https://i.scdn.co/image/ab67616d0000b2735fa79126b8c8b464059ff615"
-                                songName="Smoked out killaz"
-                                songLength={3.0}
-                            />
-
-                            <Card
-                                artistName="Devilish Trio"
-                                changeData={changeData}
-                                songImage="https://i.scdn.co/image/ab67616d0000b2735fa79126b8c8b464059ff615"
-                                songName="Smoked out killaz"
-                                songLength={3.0}
-                            />
-
-                            <Card
-                                artistName="Devilish Trio"
-                                changeData={changeData}
-                                songImage="https://i.scdn.co/image/ab67616d0000b2735fa79126b8c8b464059ff615"
-                                songName="Smoked out killaz"
-                                songLength={3.0}
-                            />
-
-                            <Card
-                                artistName="Devilish Trio"
-                                changeData={changeData}
-                                songImage="https://i.scdn.co/image/ab67616d0000b2735fa79126b8c8b464059ff615"
-                                songName="Smoked out killaz"
-                                songLength={3.0}
-                            />
-
-                            <Card
-                                artistName="Devilish Trio"
-                                changeData={changeData}
-                                songImage="https://i.scdn.co/image/ab67616d0000b2735fa79126b8c8b464059ff615"
-                                songName="Smoked out killaz"
-                                songLength={3.0}
-                            />
+                            {props.songs.map((song) => {
+                                console.log(song.songPath, "SONG PATH");
+                                return (
+                                    <Card
+                                        artistName={song.artistName}
+                                        songName={song.songName}
+                                        songImage={`storage/${song.songImagePath.slice(
+                                            6
+                                        )}`}
+                                        songPath={`storage/${song?.songPath?.slice(
+                                            6
+                                        )}`}
+                                    />
+                                );
+                            })}
                         </div>
                     </div>
                     <div className="flex justify-center absolute w-screen gap-20 bottom-0 z-[99] items-center">

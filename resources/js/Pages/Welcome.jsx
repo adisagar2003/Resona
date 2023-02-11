@@ -11,15 +11,19 @@ function Welcome() {
                     The minimalist approach to music.
                 </h1>
                 <div className="flex gap-10 w-full justify-between">
-                    <button className="p-5 hover:bg-slate-300 rounded-lg">
-                        Sign In
-                    </button>
-                    <button
-                        href="/dashboard"
-                        className="p-5 hover:bg-slate-300 rounded-lg"
-                    >
-                        <Link href="/dashboard">Continue</Link>
-                    </button>
+                    <Link href="/login">
+                        <button className="p-5 hover:bg-slate-300 rounded-lg">
+                            Sign In
+                        </button>
+                    </Link>
+                    <Link href="/dashboard">
+                        <button
+                            href="/dashboard"
+                            className="p-5 hover:bg-slate-300 rounded-lg"
+                        >
+                            Continue
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

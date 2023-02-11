@@ -11,8 +11,8 @@ function CreateSong(props) {
         songImage: null,
         artistName: props.user.name,
         songFile: null,
-        songImagePath: file?.name,
-        songPath: songFile?.name,
+        songImagePath: "Storage/images/",
+        songPath: "Storage/songs/",
         remember: false,
         artistId: props.user.id,
     });
@@ -24,7 +24,7 @@ function CreateSong(props) {
     function submit(e) {
         console.log(data);
         e.preventDefault();
-        post("/songs", data, {
+        post("/songs", {
             forceFormData: true,
         });
     }
@@ -41,10 +41,7 @@ function CreateSong(props) {
             <input
                 type="file"
                 name="song"
-                onChange={(e) => {
-                    setData("songFile", e.target.files[0]);
-                    setData("songFilePath", e.target.files[0].name);
-                }}
+                onChange={(e) => setData("songFile", e.target.files[0])}
             />
             <input
                 type="file"
@@ -66,10 +63,7 @@ function CreateSong(props) {
                 focus:ring-2
                 focus:ring-indigo-500
                 focus:ring-offset-2
-                onChange={(e) => {
-                    setData("songImage", e.target.files[0]);
-                    setData("songImagePath", e.target.files[0].name);
-                }}
+                onChange={(e) => setData("songImage", e.target.files[0])}
             />
             {progress && (
                 <progress value={progress.percentage} max="100">

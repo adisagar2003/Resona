@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Song;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,8 +37,9 @@ Route::get('/postSong',function(){
 Route::get('/dashboard', function () {
 
     $user = Auth::user();
-
-    return Inertia::render('Dashboard',['user'=>$user]);
+   $songs = Song::all();
+    return Inertia::render('Dashboard',['user'=>$user,
+    'songs'=>$songs]);
 });
 
 Route::get('/relation',function(){

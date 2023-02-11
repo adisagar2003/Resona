@@ -34,17 +34,17 @@ class SongController extends Controller
         	echo($data[
                 'songImage'
             ]);
+            $path = Storage::putFile('public/images', $request->file('songImage'));
+            
 
-     
-            Storage::putFile('images', $request->file('songImage'));
-            Storage::putFile('songs', $request->file('songFile'));
+            $songPath = Storage::putFile('public/songs', $request->file('songFile'));
      Song::create([
         
-        'songImagePath'=>$data['songImagePath'],
+        'songImagePath'=>$path,
         'artistName'=>$data['artistName'],
         'songName'=>$data['songName'],
         'artistId'=>$data['artistId'],
-        'songFile'=>$data['songFile'],
+        'songPath'=>$songPath,
         'songImage'=>$data['songImage']
 
      ]);
