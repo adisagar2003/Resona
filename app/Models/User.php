@@ -43,6 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    function getPlaylists(){
+        return $this->hasMany('App\Models\Playlist');
+    }
 
     function getSongs(){
         return $this->hasMany('App\Models\Song');

@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-
+import { Link } from "@inertiajs/react";
 import { useRemember } from "@inertiajs/react";
-function Card({ songName, artistName, songImage, songLength, songPath }) {
+
+function Card({
+    songName,
+    artistName,
+    songImage,
+    songLength,
+    songPath,
+    artistId,
+}) {
+    console.log(artistId, "ARTIST ID");
     const [formState, setFormState] = useRemember(
         {
             songImage: null,
@@ -96,10 +105,12 @@ function Card({ songName, artistName, songImage, songLength, songPath }) {
                     </button>
                 </div>
             </div>
-            <div class="p-5">
-                <h3 class="text-gray-800 text-lg">{songName}</h3>
-                <p class="text-gray-400">{artistName}</p>
-            </div>
+            <Link href={`/artist/${artistId}`}>
+                <div class="p-5">
+                    <h3 class="text-gray-800 text-lg">{songName}</h3>
+                    <p class="text-gray-400">{artistName}</p>
+                </div>
+            </Link>
         </div>
     );
 }

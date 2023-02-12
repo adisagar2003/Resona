@@ -55,6 +55,7 @@ export default function Dashboard(props, { user, auth }) {
                                     return (
                                         <Card
                                             artistName={song.artistName}
+                                            artistId={song.artistId}
                                             songName={song.songName}
                                             songImage={`storage/${song.songImagePath.slice(
                                                 6

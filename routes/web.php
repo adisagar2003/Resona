@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Song;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,18 @@ Route::get('/dashboard', function () {
    $songs = Song::all();
     return Inertia::render('Dashboard',['user'=>$user,
     'songs'=>$songs]);
+});
+
+Route::get('/artist/{id}', function ($id) {
+   $targetUser  = User::find($id);
+
+   if ($targetUser){
+    $songs = Song::where('artistId', $targetUser->id)->get();
+    return Inertia::render('ArtistProfile',['artistData'=>$targetUser,'songs'=>$songs]);
+   }else{
+    return '404 Artist not found';
+   }
+   
 });
 
 Route::get('/relation',function(){

@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "@inertiajs/react";
 import { router } from "@inertiajs/react";
 import { useState, useEffect } from "react";
+import InputLabel from "@/Components/InputLabel";
+import TextInput from "@/Components/TextInput";
 
 function CreateSong(props) {
     const [file, setFile] = useState(null);
@@ -34,8 +36,19 @@ function CreateSong(props) {
             enctype="multipart/form-data"
             class="p-10 md:grid md:grid-cols-3 md:gap-6"
         >
-            <input
+            {/* <input
                 type="text"
+                onChange={(e) => {
+                    setData("songName", e.target.value);
+                }}
+            /> */}
+
+            <TextInput
+                handleChange={(e) => setData("songName", e.target.value)}
+            />
+            <InputLabel
+                forInput="name"
+                value="Name"
                 onChange={(e) => {
                     setData("songName", e.target.value);
                 }}
