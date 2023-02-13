@@ -40,7 +40,7 @@ function Card({
             )}
             <div class="group relative">
                 <img
-                    class="w-62 object-cover md:h-48 md:w-72  block rounded"
+                    class="w-62 object-cover z-[1] md:h-48 md:w-72  block rounded"
                     src={`http://127.0.0.1:8000/${songImage}`}
                     alt="artistprofile"
                 />

@@ -1,8 +1,14 @@
 import Card from "@/Components/Card";
-import { Link } from "@inertiajs/react";
-import React from "react";
-
+import { Link, router } from "@inertiajs/react";
+import React, { useEffect, useState } from "react";
+import BottomPlayer from "@/Components/BottomPlayer";
 function ArtistProfile(props) {
+    const [stateTrigger, setStateTrigger] = useState(false);
+    var data = router.restore("Songs/PlayerData");
+    useEffect(() => {
+        data = router.restore("Songs/PlayerData");
+        console.log("data", data);
+    }, [stateTrigger, data]);
     console.log(props.songs);
     console.log(props.artistData);
     return (
@@ -16,13 +22,17 @@ function ArtistProfile(props) {
             <div className="mt-10 border-2  grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 place-content-between ">
                 {props.songs.map((song) => {
                     return (
-                        <Card
-                            artistName={song.artistName}
-                            artistId={song.artistId}
-                            songName={song.songName}
-                            songImage={`storage/${song.songImagePath.slice(6)}`}
-                            songPath={`storage/${song?.songPath?.slice(6)}`}
-                        />
+                        <div onClick={(e) => setStateTrigger(!stateTrigger)}>
+                            <Card
+                                artistName={song.artistName}
+                                artistId={song.artistId}
+                                songName={song.songName}
+                                songImage={`storage/${song.songImagePath.slice(
+                                    6
+                                )}`}
+                                songPath={`storage/${song?.songPath?.slice(6)}`}
+                            />
+                        </div>
                     );
                 })}
             </div>
@@ -30,6 +40,16 @@ function ArtistProfile(props) {
                 {" "}
                 <button>back to dashboard</button>
             </Link>
+
+            {data?.isPlaying && (
+                <BottomPlayer
+                    songName={data.songName}
+                    artistName={data.artistName}
+                    songLength={data.songLength}
+                    imageSource={data.songImage}
+                    songPath={``}
+                />
+            )}
         </div>
     );
 }

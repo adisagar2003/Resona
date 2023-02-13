@@ -47,6 +47,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Playlist');
     }
 
+
     function getSongs(){
         return $this->hasMany('App\Models\Song');
     }

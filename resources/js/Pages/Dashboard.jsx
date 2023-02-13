@@ -76,6 +76,7 @@ export default function Dashboard(props, { user, auth }) {
                             artistName={data.artistName}
                             songLength={data.songLength}
                             imageSource={data.songImage}
+                            songPath={props.songPath}
                         />
                     )}
                 </AuthenticatedLayout>
@@ -83,7 +84,7 @@ export default function Dashboard(props, { user, auth }) {
                 <div className="overflow-hidden ">
                     <div className="overflow-hidden w-screen z-[1] fixed h-screen bg-gradient-to-t from-zinc-800/90 ..." />
                     <div className="w-screen h-screen   grid fixed place-items-center">
-                        <h1 className="md:text-6xl grid place-items-center font-[1000] z-[1000] text-slate-800 p-6 ">
+                        <h1 className="md:text-6xl grid place-items-center font-[1000] z-[10000] text-slate-800 p-6 ">
                             Unlock 100+ Tracks on the go
                         </h1>
                     </div>

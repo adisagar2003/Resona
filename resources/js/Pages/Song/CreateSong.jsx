@@ -34,7 +34,7 @@ function CreateSong(props) {
         <form
             onSubmit={submit}
             enctype="multipart/form-data"
-            class="p-10 md:grid md:grid-cols-3 md:gap-6"
+            class="p-10 w-screen  flex flex-col w-[50%] items-center justify-center"
         >
             {/* <input
                 type="text"
@@ -57,6 +57,10 @@ function CreateSong(props) {
             <input
                 type="file"
                 name="song"
+                accept=".mp3,audio/*"
+                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
+                id="file_input"
+                type="file"
                 onChange={(e) => setData("songFile", e.target.files[0])}
             />
             <input
